@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, Http404
 
 # Create your views here.
 
@@ -36,3 +36,23 @@ from django.views import generic
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 2
+
+from django.shortcuts import get_object_or_404
+
+class BookDetailView(generic.DetailView):
+    model = Book
+
+    def book_detail_view(request, primary_key):
+        try:
+            book = Book.objects.get(pk=primary_key)
+        except Book.DoesNotExist:
+            raise Http404('Book does not exist')
+
+        return render(request, 'catalog/book_detail.html', context={'book': book})
+
+class AuthorListView(generic.ListView):
+    model = Author
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
