@@ -16,7 +16,7 @@ Based on this site
 - [x] Tutorial Part 4: Django admin site
 - [x] Tutorial Part 5: Creating our home page
 - [x] Tutorial Part 6: Generic list and detail views
-- [ ] Tutorial Part 7: Sessions framework
+- [x] Tutorial Part 7: Sessions framework
 - [ ] Tutorial Part 8: User authentication and permissions
 - [ ] Tutorial Part 9: Working with forms
 - [ ] Tutorial Part 10: Testing a Django web application
