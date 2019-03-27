@@ -1,4 +1,11 @@
 from django.db import models
+from datetime import date
+
+@property
+def is_overdue(self):
+    if self.due_back and date.today() > self.due_back:
+        return True
+    return False
 
 # Create your models here.
 class Genre(models.Model):
@@ -106,3 +113,7 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
+
+    from django.contrib.auth.models import User
+
+    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
