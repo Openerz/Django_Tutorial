@@ -45,7 +45,6 @@ class AuthorAdmin(admin.ModelAdmin):
 # Register the admin class with the associated model
 admin.site.register(Author, AuthorAdmin) # == @admin.register()
 
-
 admin.site.register(Genre)
 
 admin.site.register(Language)

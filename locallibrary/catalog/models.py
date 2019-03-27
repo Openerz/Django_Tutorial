@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from datetime import date
 
@@ -95,6 +96,8 @@ class BookInstance(models.Model):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})' # f' = 문자열 보간 구문 ? 결과 문자열에 서식이 지정된 식 결과를 포함하는 읽기 쉽고 편리한 구문을 제공
 
+    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
 
 class Author(models.Model):
     """Model representing an author."""
@@ -113,7 +116,3 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
-
-    from django.contrib.auth.models import User
-
-    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
