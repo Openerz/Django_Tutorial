@@ -108,6 +108,7 @@ class Author(models.Model):
 
     class Meta: # 메타데이터 옵션들은 모델에 무슨 데이터베이스를 사용해야만 하는가 그리고 데이터가 어떻게 저장되는가를 제어합니다.
         ordering = ['last_name', 'first_name']
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
     def get_absolute_url(self): # 개별 저자를 나타내기 위한 URL 을 가져오기 위해 author-detail URL 매핑을 반대로 합니다.
         """Returns the url to access a particular author instance."""
